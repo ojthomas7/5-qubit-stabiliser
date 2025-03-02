@@ -26,7 +26,7 @@ The main script constructs a quantum circuit with the following steps:
 The full circuit, including encoding, error, and stabilizer measurements, is saved as:
 
 <p align="center">
-  <img src="531css.png" width="700"/>
+  <img src="5qubit.png" width="700"/>
 </p>
 
 ## Requirements
