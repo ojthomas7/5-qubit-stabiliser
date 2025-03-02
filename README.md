@@ -8,7 +8,7 @@ This project implements the 5-qubit quantum error correction code using Qiskit. 
 
 The main script constructs a quantum circuit with the following steps:
 
-1. **Encoding**: The logical qubit on `q0` is encoded into a 5-qubit state using Hadamard (`H`), Pauli-\(Z\) (`Z`), CNOT (`CX`), and controlled-\(Z\) (`CZ`) gates. The resulting state aligns with the 5-qubit code’s properties (see [Wikipedia: Five-qubit error correcting code](https://en.wikipedia.org/wiki/Five-qubit_error_correcting_code)). A commented section allows verification of the statevector.
+1. **Encoding**: The logical qubit on `q0` is encoded into a 5-qubit state using Hadamard (`H`), Pauli-\(Z\) (`Z`), CNOT (`CX`), and controlled-\(Z\) (`CZ`) gates. The resulting state aligns with $|0_L \rangle$ (see [Wikipedia: Five-qubit error correcting code](https://en.wikipedia.org/wiki/Five-qubit_error_correcting_code)). A commented section allows verification of the statevector.
 
 2. **Error Injection**: A single \(Z\) error is applied to `q2` as an example. This can be modified to test other error types.
 
@@ -19,21 +19,15 @@ The main script constructs a quantum circuit with the following steps:
    - \(S4 = ZXIXZ\)
    Each stabilizer is implemented with Hadamard and controlled gates, followed by measurement into a syndrome register.
 
-4. **Simulation**: The circuit is simulated using `AerSimulator` to obtain syndrome outcomes.
-
 ## Circuit Diagram
 
 The full circuit, including encoding, error, and stabilizer measurements, is saved as:
 
 <p align="center">
   <img src="5qubit.png" width="700"/>
+   <i></i>
 </p>
 
-## Requirements
+## Results
 
-- Qiskit (`qiskit`, `qiskit_aer`)
-- Matplotlib (for circuit drawing)
-
-Install with:
-```bash
-pip install qiskit qiskit-aer matplotlib
+Syndrome measurement within the .ipynb file yields "Syndrome measurements: {'0100 00000': 1024}". Qiskit uses a reversed indexing style to the error-diagnosis table on the wikipedia page, so our actual syndrome measurement reads "$0010$", correctly diagnosing the error as a Pauli-Z gate on $q_2$.
