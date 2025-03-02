@@ -30,4 +30,4 @@ The full circuit, including encoding, error, and stabilizer measurements, is sav
 
 ## Results
 
-Syndrome measurement within the .ipynb file yields "Syndrome measurements: {'0100 00000': 1024}". Qiskit uses a reversed indexing style to the error-diagnosis table on the wikipedia page, so our actual syndrome measurement reads "$0010$", correctly diagnosing the error as a Pauli-Z gate on $q_2$.
+Syndrome measurement within the .ipynb file yields "Syndrome measurements: {'0100 00000': 1024}". Qiskit uses a reversed indexing style to the error-diagnosis table on the wikipedia page, so our actual syndrome measurement reads 0010, correctly diagnosing the error as a Pauli-Z gate on $q_2$.
